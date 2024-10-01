@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ABC Retail</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        
+        .navbar {
+            background-color: #355D65; 
+            overflow: hidden;
+            padding: 10px;
+        }
+
+            .navbar a {
+                float: left;
+                display: block;
+                color: #F7F5F2; 
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .navbar a:hover {
+                    background-color: #FF6F61; 
+                    color: #2E2E2E; 
+                }
+
+                .navbar a.active {
+                    background-color: #6272A4; 
+                    color: #F7F5F2; 
+                }
+
+        .container {
+            margin-top: 20px;
+            background-color: #F7F5F2; 
+            color: #2E2E2E; 
+            padding: 20px;
+        }
+
+        .multicolortext {
+            color: #2C3E50; 
+        }
+
+        .section {
+            padding: 20px;
+            margin: 0 10px;
+        }
+
+        .multicolortext {
+            background: linear-gradient(90deg, #355D65, #FF6F61, #6272A4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center; 
+            margin-top: 20px;
+        }
+
+        <h1 class="multicolortext" >
+        <span style="color: #355D65;" > ABC</span >
+        <span style="color: #FF6F61;" > Retail</span >
+        <span style="color: #6272A4;" > Storage Management</span >
+        </h1 >
+
+
+        ul {
+            list-style-type: disc;
+            margin: 10px 0;
+        }
+
+        .btn-primary {
+            background-color: #FF6F61; 
+            color: #F7F5F2; 
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background-color: #F7F5F2; 
+            border: 1px solid #D4D4D4; 
+            padding: 15px;
+            border-radius: 5px;
+            width: 30%;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+
+        footer {
+            background-color: #2E2E2E; 
+            color: #F7F5F2; 
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/" class="active">Home</a>
+        <a href="/AddCustomerProfile">Add Customer Profile</a>
+        <a href="/UploadImage">Upload Product Image</a>
+        <a href="/ProcessOrder">Process Order</a>
+        <a href="/UploadContract">Upload Contract</a>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; 2024 - ABC Retail Storage</p>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
