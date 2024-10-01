@@ -1,7 +1,6 @@
 ﻿using Azure;
 using Azure.Data.Tables;
 
-// Define the CustomerProfile class
 public class CustomerProfile : ITableEntity
 {
     public string PartitionKey { get; set; }
@@ -16,4 +15,3 @@ public class CustomerProfile : ITableEntity
     public CustomerProfile() { }
 
 }
-

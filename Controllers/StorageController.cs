@@ -44,7 +44,7 @@ namespace ST10045251_CLDV6212_POE.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadImage(IFormFile file)
         {
-            var blobContainerClient = new BlobServiceClient(_storageConnectionString).GetBlobContainerClient("product-images");
+            var blobContainerClient = new BlobServiceClient(_storageConnectionString).GetBlobContainerClient("product-images"); //No connection, unable to deploy new function app
             var blobClient = blobContainerClient.GetBlobClient(file.FileName);
             using (var stream = file.OpenReadStream())
             {
@@ -63,7 +63,7 @@ namespace ST10045251_CLDV6212_POE.Controllers
         [HttpPost]
         public async Task<IActionResult> ProcessOrder(string orderDetails)
         {
-            var queueClient = new QueueClient(_storageConnectionString, "order-processing");
+            var queueClient = new QueueClient(_storageConnectionString, "order-processing"); //No connection, unable to deploy new function app
             await queueClient.SendMessageAsync(orderDetails);
             return RedirectToAction("Index");
         }
@@ -78,7 +78,7 @@ namespace ST10045251_CLDV6212_POE.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadContract(IFormFile file)
         {
-            var shareClient = new ShareClient(_storageConnectionString, "contracts-logs");
+            var shareClient = new ShareClient(_storageConnectionString, "contracts-logs"); //No connection, unable to deploy new function app
             var directoryClient = shareClient.GetDirectoryClient("");
             var fileClient = directoryClient.GetFileClient(file.FileName);
             using (var stream = file.OpenReadStream())
